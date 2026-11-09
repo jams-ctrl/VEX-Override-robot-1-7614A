@@ -1,0 +1,106 @@
+Hi James, quite a conundrum you're in.
+
+.src  
+    main.cpp 
+        handles all controller input
+        calls subsystem functions
+    initialize.cpp
+        chooses auton 
+        initializes brain
+        chooses auton route
+    devices.cpp 
+        assigns ports
+        assigns controller settings
+        defines motors, pistons, sensors
+    autonomous.cpp
+        updates auton subsystems
+        executes auton routes
+        handles ai sensor 
+    
+    .subsystems
+        arm.cpp
+            set state logic (based on angle)
+            pid logic (only P loop)
+        .doublepark.cpp
+            same as lift
+        .hood.cpp
+            same as doublepark
+        .intake.cpp
+            intake_state encapsulation
+            set FWD, REV, OFF; get methods
+            toggle method
+            doublepark tandem logic
+        .lift.cpp
+            boolean lift_state encapsulation
+            toggle, get/set namespace methods
+        .matchloader.cpp
+            same as lift
+        .wing.cpp 
+            same as lift
+    .autons
+        .left_side.cpp
+            comments - refer to if q w/ auton
+            moves robot to positions sequentially
+            2 paths - left and left-mid
+        .movement.cpp
+            special movement methods
+            ai vision sensor integration - auto movement
+            colour sensor integration - matchloading
+        .right_side
+            same as left side w/ 2 paths - right and right-mid
+        .sawp
+            same as left_side; 1 path 
+            fufills all AWP condiitons solo.
+        .skills
+            same as left_side; 1 path
+            auton skills run
+
+.include
+    all begin with a 
+    #ifndef FILE_NAME_H_
+    #define FILE_NAME_H_
+    with file names in all caps
+    main.h
+        predifines methods used in corresponding .cpp file
+    initialize.h
+        predifines methods used in corresponding .cpp file
+    globals.h
+        defines states to integers for ease-of-understanding (FWD = 1)
+    devices.h
+        defines extern devices used in corresponding .cpp file 
+        tells other files where to reference said devices
+    autonomous.h
+        predifines methods used in corresponding .cpp file
+        methods not defined built into PROS
+    api.h
+        built into pros, adds all pros header files
+    .subsystems
+        arm.h 
+            predifines methods used in corresponding .cpp file
+        doublepark.h
+            predifines methods used in corresponding .cpp file
+        hood.h
+            predifines methods used in corresponding .cpp file
+        intake.h
+            predifines methods used in corresponding .cpp file
+        lift.h 
+            predifines methods used in corresponding .cpp file
+        matchloader.h 
+            predifines methods used in corresponding .cpp file
+        wing.h 
+            predifines methods used in corresponding .cpp file
+    .auton
+        left_side.h
+            predifines methods used in corresponding .cpp file
+        movement.h
+            predifines methods used in corresponding .cpp file
+        right_side.h
+            predifines methods used in corresponding .cpp file
+        sawp.h
+            predifines methods used in corresponding .cpp file
+        skills.h 
+            predifines methods used in corresponding .cpp file
+
+
+
+All other folders are either created by PROS or Lemlib or are inconsequential.

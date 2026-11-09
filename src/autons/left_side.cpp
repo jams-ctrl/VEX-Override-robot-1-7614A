@@ -12,14 +12,19 @@
 #include "./auton/movement.h"
 bool middle = false;
 void left_side(){
+  // defines origin of bot
   chassis.setPose(0, 0, 0);
   Intake::toggle();
   Lift::toggle();
+  // ------------------------------all relative to bot------------------------------ \\
   chassis.moveToPoint(-8, 30, 1000);
+  // wait until chassis has moved certain distange
   chassis.waitUntil(24);
   Matchloader::toggle();
+  // wait until path has been completed
   chassis.waitUntilDone();
   chassis.moveToPoint(-31, 47, 1000);
+  // delay set milliseconds
   pros::delay(250);
   Matchloader::toggle();
   // Matchloader::toggle();
@@ -31,6 +36,7 @@ void left_side(){
   chassis.waitUntilDone();
   chassis.turnToHeading(180, 500);
   chassis.waitUntilDone();
+  // special function - refer to movement.cpp
   Autonomous::moveRelative(-15, 500, {.forwards=false});
   chassis.waitUntilDone();
   pros::delay(50);

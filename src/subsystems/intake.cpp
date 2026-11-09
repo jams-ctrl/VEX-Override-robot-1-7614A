@@ -15,7 +15,7 @@ namespace Intake{
     }
   }
   void set_intake(int state){
-    Doublepark::set(RETRACTED);
+    //Doublepark::set(RETRACTED);
     intake_motor.set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
     if(state == FWD){
       intake_state = FWD;
@@ -32,21 +32,21 @@ namespace Intake{
   int get_intake(){
     return intake_state;
   }
-  void double_park(){
-    parking = true;
-    intake_state = REV;
-    intake_motor.move_velocity(-200);
-  }
-  void update_intake(){
-    if(parking){
-      if(distance.get() < 35){
-        intake_state = OFF;
-        intake_motor.set_brake_mode(pros::motor_brake_mode_e::E_MOTOR_BRAKE_HOLD);
-        intake_motor.brake();
-        Doublepark::set(EXTENDED);
-        parking=false;
+  // void double_park(){
+  //   parking = true;
+  //   intake_state = REV;
+  //   intake_motor.move_velocity(-200);
+  // }
+  // void update_intake(){
+  //   if(parking){
+  //     if(distance.get() < 35){
+  //       intake_state = OFF;
+  //       intake_motor.set_brake_mode(pros::motor_brake_mode_e::E_MOTOR_BRAKE_HOLD);
+  //       intake_motor.brake();
+  //       Doublepark::set(EXTENDED);
+  //       parking=false;
 
-      }
-    }
-  }
+  //     }
+  //   }
+  // }
 }

@@ -4,6 +4,7 @@
 #define INTAKE_MOTOR 9
 #define ARM_MOTOR -1
 
+// define drivetrain motors 
 #define LEFT_FRONT_MOTOR -18
 #define LEFT_BACK_MOTOR 19
 #define LEFT_TOP_BACK_MOTOR -17
@@ -113,4 +114,5 @@ lemlib::TrackingWheel vertical_pod (&vertical_wheel, lemlib::Omniwheel::NEW_2, 0
 lemlib::TrackingWheel horizontal_pod(&horizontal_wheel, lemlib::Omniwheel::NEW_2, -3.5);
 lemlib::OdomSensors sensors (&vertical_pod, nullptr, nullptr, nullptr, &inertial);
 
+// define the chassis
 lemlib::Chassis chassis (drivetrain, lateral_controller, angular_controller, sensors, &throttle_curve, &turn_curve);

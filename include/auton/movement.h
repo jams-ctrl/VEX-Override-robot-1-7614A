@@ -1,6 +1,7 @@
 #ifndef MOVEMENT__H__
 #define MOVEMENT__H__
 
+#include "lemlib/chassis/chassis.hpp"
 namespace Autonomous{
   void moveRelative(int dist, int timeout, lemlib::MoveToPointParams params);
   void turnRelative();
