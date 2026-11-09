@@ -101,6 +101,8 @@ Hi James, quite a conundrum you're in.
         skills.h 
             predifines methods used in corresponding .cpp file
 
-
+Helpful functions
+.set_value() for pneumatics
+.move_velocity() for motor velocity
 
 All other folders are either created by PROS or Lemlib or are inconsequential.

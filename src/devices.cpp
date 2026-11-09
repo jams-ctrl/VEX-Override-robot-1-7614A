@@ -1,8 +1,10 @@
 #include "main.h"
 #include "lemlib/api.hpp"
 
+// defines ports, with negative value if reversed
 #define INTAKE_MOTOR 9
 #define ARM_MOTOR -1
+#define LIFT_MOTOR 1
 
 // define drivetrain motors 
 #define LEFT_FRONT_MOTOR -18
@@ -14,7 +16,6 @@
 #define RIGHT_TOP_BACK_MOTOR 20
 
 #define MATCHLOADER 3
-#define LIFT 1
 #define WING 2
 #define HOOD 4
 #define DOUBLEPARK 5
@@ -37,11 +38,12 @@ pros::MotorGroup left_motors ({LEFT_FRONT_MOTOR, LEFT_BACK_MOTOR, LEFT_TOP_BACK_
 pros::MotorGroup right_motors ({RIGHT_FRONT_MOTOR, RIGHT_BACK_MOTOR, RIGHT_TOP_BACK_MOTOR}, pros::MotorGear::blue);
 pros::Motor intake_motor (INTAKE_MOTOR, pros::MotorGear::blue);
 pros::Motor arm_motor (ARM_MOTOR, pros::MotorGear::red);
+pros::Motor lift_motor (LIFT_MOTOR, pros::MotorGear::blue);
 
 
 //pistons
 pros::adi::DigitalOut matchloader (MATCHLOADER);
-pros::adi::DigitalOut lift (LIFT);
+//pros::adi::DigitalOut lift (LIFT);
 pros::adi::DigitalOut wing (WING);
 pros::adi::DigitalOut hood (HOOD);
 pros::adi::DigitalOut double_park(DOUBLEPARK);

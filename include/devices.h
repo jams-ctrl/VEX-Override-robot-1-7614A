@@ -10,11 +10,11 @@ extern pros::Motor intake_motor;
 extern pros::Motor redirect_motor;
 extern pros::Motor exit_motor;
 extern pros::Motor arm_motor;
+extern pros::Motor lift_motor;
 extern pros::MotorGroup left_motors;
 extern pros::MotorGroup right_motors;
 
 extern pros::adi::DigitalOut matchloader;
-extern pros::adi::DigitalOut lift;
 extern pros::adi::DigitalOut wing;
 extern pros::adi::DigitalOut hood;
 extern pros::adi::DigitalOut double_park;

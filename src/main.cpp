@@ -20,7 +20,7 @@ void opcontrol(){
   pros::Task screen_task(screen);
   while(true){
     //Arm::arm_pid();
-    Intake::update_intake();
+    //Intake::update_intake();
     int throttle = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
     int turn = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
@@ -37,10 +37,14 @@ void opcontrol(){
       }
     }
 
-    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)){
-      Hood::toggle();
+    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)){
+      Lift::toggle();
     }
 
+      // if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)){
+    //   Hood::toggle();
+    // }
+    
     // if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
     //   Arm::score(50);
     // }
@@ -56,19 +60,16 @@ void opcontrol(){
     //   Arm::score(100);
     // }
 
-    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)){
-      Lift::toggle();
-    }
     // if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)){
     //   Wing::toggle();
     // }
-    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)){
-      Intake::double_park();
-      //Matchloader::set(false);
-    }
-    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)){
-      //Matchloader::toggle();
-    }
+    // if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)){
+    //   Intake::double_park();
+    //   //Matchloader::set(false);
+    // }
+    // if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)){
+    //   //Matchloader::toggle();
+    // }
     if(pros::competition::is_connected() && !pros::competition::is_autonomous()){
       game_time++;
     } 

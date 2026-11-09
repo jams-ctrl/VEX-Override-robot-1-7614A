@@ -5,6 +5,7 @@ namespace Lift {
   void set(bool state);
   void toggle();
   bool get();
+  void extend();
 }
 
 #endif
