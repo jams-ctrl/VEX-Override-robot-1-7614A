@@ -5,48 +5,36 @@
 #include "globals.h"
 
 namespace Intake{
+  // define state variables
   int intake_state = OFF;
-  bool parking = false;
+  // toggle intake 
   void toggle(){
+    //reverse current state 
     if(intake_state == FWD){
       set_intake(OFF);
     }else{
       set_intake(FWD);
     }
   }
+  // set intake state; called by above function
   void set_intake(int state){
-    //Doublepark::set(RETRACTED);
     intake_motor.set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
     if(state == FWD){
       intake_state = FWD;
+      // set motor velocity
       intake_motor.move_velocity(600);
     } else if (state == REV){
       intake_state = REV;
+      // set motor velocity
       intake_motor.move_velocity(-600);
     } else{
       intake_state = OFF;
+      // set motor velocity
       intake_motor.move_velocity(0);
     }
   }
-
+  // getter
   int get_intake(){
     return intake_state;
   }
-  // void double_park(){
-  //   parking = true;
-  //   intake_state = REV;
-  //   intake_motor.move_velocity(-200);
-  // }
-  // void update_intake(){
-  //   if(parking){
-  //     if(distance.get() < 35){
-  //       intake_state = OFF;
-  //       intake_motor.set_brake_mode(pros::motor_brake_mode_e::E_MOTOR_BRAKE_HOLD);
-  //       intake_motor.brake();
-  //       Doublepark::set(EXTENDED);
-  //       parking=false;
-
-  //     }
-  //   }
-  // }
 }

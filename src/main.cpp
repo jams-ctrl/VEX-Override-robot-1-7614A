@@ -27,8 +27,8 @@ void opcontrol(){
     chassis.arcade(throttle, turn, false, 0.3f);
     
     if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)){
+      //toggle the intake state
       Intake::toggle();
-      //Arm::set_state(0);
     } else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)){ //if we detect a new press of R2
       if(Intake::get_intake() == REV){ //if the intake is already outtaking
         Intake::set_intake(OFF); //turn the intake off
