@@ -5,6 +5,7 @@
 #define INTAKE_MOTOR 9
 #define ARM_MOTOR -1
 #define LIFT_MOTOR 1
+#define BAR_MOTOR 8 // change later
 
 // define drivetrain motors 
 #define LEFT_FRONT_MOTOR -18
@@ -39,6 +40,7 @@ pros::MotorGroup right_motors ({RIGHT_FRONT_MOTOR, RIGHT_BACK_MOTOR, RIGHT_TOP_B
 pros::Motor intake_motor (INTAKE_MOTOR, pros::MotorGear::blue);
 pros::Motor arm_motor (ARM_MOTOR, pros::MotorGear::red);
 pros::Motor lift_motor (LIFT_MOTOR, pros::MotorGear::blue);
+pros::Motor bar_motor (BAR_MOTOR, pros::MotorGear::blue); // change
 
 
 //pistons

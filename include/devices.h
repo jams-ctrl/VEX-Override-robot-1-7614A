@@ -11,6 +11,7 @@ extern pros::Motor redirect_motor;
 extern pros::Motor exit_motor;
 extern pros::Motor arm_motor;
 extern pros::Motor lift_motor;
+extern pros::Motor bar_motor;
 extern pros::MotorGroup left_motors;
 extern pros::MotorGroup right_motors;
 

@@ -7,6 +7,7 @@
 #include "./subsystems/intake.h"
 #include "./subsystems/arm.h"
 #include "./subsystems/lift.h"
+#include "./subsystems/bar.h"
 #include "./subsystems/matchloader.h"
 #include "./subsystems/wing.h"
 #include "./subsystems/hood.h"

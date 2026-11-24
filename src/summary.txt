@@ -105,4 +105,11 @@ Helpful functions
 .set_value() for pneumatics
 .move_velocity() for motor velocity
 
+On Creation of New file
+1. Make .cpp file   
+2. Make corresponding .h file - Recommend - dont care about until functions all defined/set
+3. #include .cpp in main and #include .h in cpp file
+4. Define port, motor type, variable in devices.cpp 
+5. Extern bar motor in devices.h
+
 All other folders are either created by PROS or Lemlib or are inconsequential.

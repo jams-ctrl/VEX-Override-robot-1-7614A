@@ -11,6 +11,11 @@
 #define FWD 1
 #define REV 2
 
+// bar states
+#define BCK 0
+#define FNT 1
+#define TOP 2
+
 //piston states
 #define RETRACTED 0
 #define EXTENDED 1
