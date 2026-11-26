@@ -16,10 +16,12 @@
 #define RIGHT_BACK_MOTOR -3
 #define RIGHT_TOP_BACK_MOTOR 20
 
+// pistons
 #define MATCHLOADER 3
 #define WING 2
 #define HOOD 4
 #define DOUBLEPARK 5
+#define CLAW 1  // change later
 
 #define INERTIAL 15
 #define MATCHLOADER_SENSOR 13
@@ -46,6 +48,7 @@ pros::Motor bar_motor (BAR_MOTOR, pros::MotorGear::blue); // change
 //pistons
 pros::adi::DigitalOut matchloader (MATCHLOADER);
 //pros::adi::DigitalOut lift (LIFT);
+pros::adi::DigitalOut claw (CLAW);
 pros::adi::DigitalOut wing (WING);
 pros::adi::DigitalOut hood (HOOD);
 pros::adi::DigitalOut double_park(DOUBLEPARK);

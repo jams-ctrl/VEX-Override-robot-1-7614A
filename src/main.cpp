@@ -8,6 +8,7 @@
 #include "./subsystems/arm.h"
 #include "./subsystems/lift.h"
 #include "./subsystems/bar.h"
+#include "./subsystems/claw.h"
 #include "./subsystems/matchloader.h"
 #include "./subsystems/wing.h"
 #include "./subsystems/hood.h"
@@ -38,13 +39,22 @@ void opcontrol(){
       }
     }
 
+    if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)){
+      // toggle the 2 bar state from front to back
+      Bar::toggle();
+    } 
+    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)){ //if we detect a new press of R2
+      // toggle the 2 bar state from 
+      Bar::scoreToggle();
+    }
+
     if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)){
       Lift::toggle();
     }
 
-      // if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)){
-    //   Hood::toggle();
-    // }
+    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)){
+      Claw::toggle();
+    }
     
     // if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
     //   Arm::score(50);

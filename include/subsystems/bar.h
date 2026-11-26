@@ -1,9 +1,10 @@
-#ifndef __LIFT_H__
-#define __LIFT_H__
+#ifndef __BAR_H__
+#define __BAR_H__
 
-namespace bar {
+namespace Bar {
   void toggle();
-  void scoreToggle(int state);
+  void scoreToggle();
+  bool get();
 }
 
 #endif

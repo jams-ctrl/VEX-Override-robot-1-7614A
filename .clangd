@@ -1,0 +1,5 @@
+CompileFlags:
+  Add:
+    - "--target=arm-none-eabi"
+    - "-isystem/Applications/PROS Editor.app/Contents/Resources/app/node_modules/@pros/toolchain-arm/lib/gcc/arm-none-eabi/*/include"
+    - "-isystem/Applications/PROS Editor.app/Contents/Resources/app/node_modules/@pros/toolchain-arm/arm-none-eabi/include"
