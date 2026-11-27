@@ -16,6 +16,7 @@ Hi James, quite a conundrum you're in.
         updates auton subsystems
         executes auton routes
         handles ai sensor 
+        brain display
     
     .subsystems
         arm.cpp

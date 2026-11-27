@@ -17,7 +17,6 @@
 
 void opcontrol(){
   // printf("\n");
-  bool check = false; //jams
   int game_time = 0;
   pros::Task screen_task(screen);
   while(true){
@@ -48,8 +47,12 @@ void opcontrol(){
       Bar::scoreToggle();
     }
 
-    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)){
+    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)){
       Lift::toggle();
+    } else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)){
+      Lift::set(ONE);
+    } else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)){
+      Lift::set(TWO);
     }
 
     if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)){

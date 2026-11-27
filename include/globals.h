@@ -16,6 +16,12 @@
 #define FNT 1
 #define TOP 2
 
+//cascade states 
+#define OFF 0
+#define ONE 1
+#define TWO 2
+#define EXT 3
+
 //piston states
 #define RETRACTED 0
 #define EXTENDED 1

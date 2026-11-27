@@ -31,19 +31,20 @@ void screen() {
 	// }
 }
 void update_subsystems() {
+	// check if bot is in autonomous phase
 	while(pros::competition::is_autonomous()){
 		Arm::arm_pid();
-		
 		pros::delay(5);
 		Autonomous::moveToGoal(true);
 	}
 }
 
+// automatically run by PROS when comp switch sent to autonomous
 void autonomous() {
-  ai_sensor.reset();
+    ai_sensor.reset();
 	int route = get_routine();
-  ai_sensor.enable_detection_types(pros::AivisionModeType::colors);
-  ai_sensor.set_color(goal_colour);
+  	ai_sensor.enable_detection_types(pros::AivisionModeType::colors);
+  	ai_sensor.set_color(goal_colour);
 	// start tasks; task 3
 	pros::Task screen_task(screen);
 	pros::Task subsystems_task(update_subsystems);

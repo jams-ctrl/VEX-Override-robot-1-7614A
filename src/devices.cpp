@@ -119,6 +119,7 @@ lemlib::ControllerSettings arm_controller(1,
 
 lemlib::TrackingWheel vertical_pod (&vertical_wheel, lemlib::Omniwheel::NEW_2, 0.5625, -1);
 lemlib::TrackingWheel horizontal_pod(&horizontal_wheel, lemlib::Omniwheel::NEW_2, -3.5);
+// define sensor group, nullptr if no sensor, & to dereference pointer
 lemlib::OdomSensors sensors (&vertical_pod, nullptr, nullptr, nullptr, &inertial);
 
 // define the chassis
