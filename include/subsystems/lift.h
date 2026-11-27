@@ -2,7 +2,7 @@
 #define __LIFT_H__
 
 namespace Lift {
-  void set(bool state);
+  void set(int state);
   void toggle();
   bool get();
   void extend(int state);
