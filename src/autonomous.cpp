@@ -26,6 +26,9 @@ void screen() {
 			lemlib::Pose pose = chassis.getPose();
 			printf("X: %f, Y: %f, Theta: %f\n", pose.x, pose.y, pose.theta);
 			pros::lcd::print(1, "X: %f, Y: %f, Theta: %f\n", pose.x, pose.y, pose.theta);
+			pros::lcd::print(3, "bmotor:%f",bar_motor.get_position());
+			pros::lcd::print (5, "lmotor:%f",lift_motor.get_position());
+			//pros::lcd::print (7, "imotor:%d",intake_motor.get_position());
 			pros::delay(100);
 		}
 	// }

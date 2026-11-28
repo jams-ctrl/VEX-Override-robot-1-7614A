@@ -13,12 +13,14 @@
 #include "./subsystems/wing.h"
 #include "./subsystems/hood.h"
 #include "./subsystems/doublepark.h"
+#include "pros/misc.h"
 
 
 void opcontrol(){
   // printf("\n");
   int game_time = 0;
   pros::Task screen_task(screen);
+  bar_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   while(true){
     //Arm::arm_pid();
     //Intake::update_intake();
@@ -27,10 +29,10 @@ void opcontrol(){
 
     chassis.arcade(throttle, turn, false, 0.3f);
     
-    if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)){
+    if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)){
       //toggle the intake state
       Intake::toggle();
-    } else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)){ //if we detect a new press of R2
+    } else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)){ //if we detect a new press of R2
       if(Intake::get_intake() == REV){ //if the intake is already outtaking
         Intake::set_intake(OFF); //turn the intake off
       }else{ //if the intake is not outtaking
@@ -42,18 +44,31 @@ void opcontrol(){
       // toggle the 2 bar state from front to back
       Bar::toggle();
     } 
-    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)){ //if we detect a new press of R2
-      // toggle the 2 bar state from 
-      Bar::scoreToggle();
-    }
+    // if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)){ //if we detect a new press of R2
+    //   // toggle the 2 bar state from 
+    //   Bar::scoreToggle();
+    // }
 
-    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)){
-      Lift::toggle();
-    } else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)){
-      Lift::set(ONE);
-    } else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)){
-      Lift::set(TWO);
+    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)){
+      Lift::extend(EXT);
     }
+     if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)){
+      Lift::extend(OFF);
+    }
+     if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
+      Lift::extend(6);
+    }
+    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)){
+      Bar::stop();
+    }
+    // } else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)){
+    //   Lift::set(ONE);
+    // } else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)){
+    //   Lift::set(TWO);
+    // }
+    //  else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)){
+    //   Lift::set(TWO);
+    // }
 
     if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)){
       Claw::toggle();

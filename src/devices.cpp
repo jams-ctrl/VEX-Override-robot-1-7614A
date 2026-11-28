@@ -2,28 +2,29 @@
 #include "lemlib/api.hpp"
 
 // defines ports, with negative value if reversed
-#define INTAKE_MOTOR 9
+#define INTAKE_MOTOR 11
 #define ARM_MOTOR -1
-#define LIFT_MOTOR 1
-#define BAR_MOTOR 8 // change later
+#define LIFT_MOTOR 5 // 11W motoro
+#define LIFT_MOTOR_2 -6 // 5.5W
+#define BAR_MOTOR 20 // change later
 
 // define drivetrain motors 
-#define LEFT_FRONT_MOTOR -18
-#define LEFT_BACK_MOTOR 19
-#define LEFT_TOP_BACK_MOTOR -17
+#define LEFT_FRONT_MOTOR - 9
+#define LEFT_BACK_MOTOR  -8
+#define LEFT_TOP_BACK_MOTOR  -10
 
-#define RIGHT_FRONT_MOTOR 8
-#define RIGHT_BACK_MOTOR -3
-#define RIGHT_TOP_BACK_MOTOR 20
+#define RIGHT_FRONT_MOTOR  2
+#define RIGHT_BACK_MOTOR 1 
+#define RIGHT_TOP_BACK_MOTOR 3
 
-// pistons
+// pistons 'A' = 1
 #define MATCHLOADER 3
 #define WING 2
 #define HOOD 4
 #define DOUBLEPARK 5
 #define CLAW 1  // change later
 
-#define INERTIAL 15
+#define INERTIAL 16
 #define MATCHLOADER_SENSOR 13
 #define HORIZONTAL_WHEEL 14
 #define ARM_SENSOR 16
@@ -41,8 +42,9 @@ pros::MotorGroup left_motors ({LEFT_FRONT_MOTOR, LEFT_BACK_MOTOR, LEFT_TOP_BACK_
 pros::MotorGroup right_motors ({RIGHT_FRONT_MOTOR, RIGHT_BACK_MOTOR, RIGHT_TOP_BACK_MOTOR}, pros::MotorGear::blue);
 pros::Motor intake_motor (INTAKE_MOTOR, pros::MotorGear::blue);
 pros::Motor arm_motor (ARM_MOTOR, pros::MotorGear::red);
-pros::Motor lift_motor (LIFT_MOTOR, pros::MotorGear::blue);
-pros::Motor bar_motor (BAR_MOTOR, pros::MotorGear::blue); // change
+pros::Motor lift_motor (LIFT_MOTOR, pros::MotorGear::green);
+pros::Motor lift_motor_2 (LIFT_MOTOR_2, pros::MotorGear::green);
+pros::Motor bar_motor (BAR_MOTOR, pros::MotorGear::red); // change
 
 
 //pistons
@@ -120,7 +122,7 @@ lemlib::ControllerSettings arm_controller(1,
 lemlib::TrackingWheel vertical_pod (&vertical_wheel, lemlib::Omniwheel::NEW_2, 0.5625, -1);
 lemlib::TrackingWheel horizontal_pod(&horizontal_wheel, lemlib::Omniwheel::NEW_2, -3.5);
 // define sensor group, nullptr if no sensor, & to dereference pointer
-lemlib::OdomSensors sensors (&vertical_pod, nullptr, nullptr, nullptr, &inertial);
+lemlib::OdomSensors sensors (&vertical_pod, nullptr, &horizontal_pod, nullptr, &inertial);
 
 // define the chassis
 lemlib::Chassis chassis (drivetrain, lateral_controller, angular_controller, sensors, &throttle_curve, &turn_curve);

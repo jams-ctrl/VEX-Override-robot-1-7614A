@@ -5,6 +5,7 @@ namespace Bar {
   void toggle();
   void scoreToggle();
   bool get();
+  void stop();
 }
 
 #endif

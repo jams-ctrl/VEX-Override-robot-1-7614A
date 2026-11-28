@@ -10,7 +10,7 @@ namespace Func{
     // get position
     int prevPos = motor.get_position();
     // allow motor to begin moving
-    pros::delay(50);
+    pros::delay(2000);
 
     bool noResist = true;
     while (noResist){

@@ -10,6 +10,7 @@ namespace Intake{
   // toggle intake 
   void toggle(){
     //reverse current state 
+    pros::lcd::print (7, "imotor:%f",intake_motor.get_position());
     if(intake_state == FWD){
       set_intake(OFF);
     }else{
